@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Alten_Cars_Registry.Models.Car>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>*@
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+@*<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>*@
+
+<h4>Altea car registry</h4>
+<div class="row">
+
+
+    <div class="col-ml-4">
+
+        @(Html
+        .Grid(Model)
+        .Columns(columns =>
+        {
+            columns.Add(c => c.VehicleId).Titled("VehicleId");
+            columns.Add(c => c.Regnr).Titled("Regnr");
+            columns.Add(c => c.Customer).Titled("Customer").Filterable(true);
+            columns.Add(c => c.Status).Titled("Status").Filterable(true);
+            columns.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(o => Html.ActionLink("Ping", "Ping", new { id = o.VehicleId }));
+        })
+
+    )
+
+    </div>
+
+</div>
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"></script>
+
+}
+<script type="text/javascript">
+    $(function () {
+        $("#statusUp").click(w() {
+
+        });
+    });
+</script>
