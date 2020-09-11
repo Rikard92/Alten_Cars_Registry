@@ -1,0 +1,11 @@
+How to run Alten_Cars_Registry Solution
+
+1. Extract Project from file.
+2. Open project with Microsoft Visual Studios 2019
+3. Run solution 
+
+Note: Docker was unable to start on developing computer due to the lack of virtualisation on BIOS.
+
+
+Analysis and Technologies:
+Solution uses a standard MVC template for single pages. The default visual bootstrap is used for GUI. For building the table Gridmvc is used as well as its scripts and bootstrap. Static values of the cars are created in the HomeController.cs to simulate a database connection.
